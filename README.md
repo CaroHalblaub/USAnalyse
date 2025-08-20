@@ -36,7 +36,7 @@ pip install -r requirements.txt
 2. Frames extrahieren  
    Mit dem Skript frames.py können einzelne Frames aus Videos extrahiert und für die Annotation        genutzt werden. Speichern unter dataset/images/train, dataset/images/val und dataset/test/images.
 
-3. Bilder segmnetieren  
+3. Bilder segmentieren  
    Mithilfe eines geeigneten Programms (z.B. CVAT) Bilder segmentieren und in dataset/labels/train,    dataset/labels/val und dataset/test/labels speichern. 
 
 5. Training starten und Evaluation  
