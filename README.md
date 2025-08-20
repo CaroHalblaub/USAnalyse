@@ -44,35 +44,39 @@ wget https://github.com/sevdaimany/YOLOv8-Medical-Imaging/raw/master/runs/segmen
 
 
 ## Konfigurationsparameter
-    epochs=200,
-    imgsz=640,
-    overlap_mask=False,
-    mask_ratio=1,
-    batch=32,
-    patience=200,
-    **strong_aug/weak_aug/no_aug
 
+```python
+# Trainingsparameter
+epochs = 200
+imgsz = 640
+overlap_mask = False
+mask_ratio = 1
+batch = 32
+patience = 200
+aug = strong_aug / weak_aug / no_aug
 
-    strong_aug = 
-    "dropout": 0.4, #Dropout rate for regularization in classification tasks, preventing overfitting by randomly omitting units during training.
-    "hsv_h": 0, #Adjusts the hue of the image
-    "hsv_s": 0, #Alters the saturation of the image
-    "hsv_v": 0.5, # Modifies the value (brightness) of the image
-    "degrees": 30.0, # 30 Rotates the image randomly within the specified degree range
-    "translate": 0.1, #Translates the image horizontally and vertically by a fraction of the image size
-    "scale": 0.3, #Scales the image by a gain factor
-    "shear": 5, #Shears the image by a specified degree
-    "perspective": 0.0001, #Applies a random perspective transformation to the image
-    "flipud": 0.5, #Flips the image upside down with the specified probability
-    "fliplr": 0.7, # 0.5Flips the image left to right with the specified probability
-    "bgr": 0, #Flips the image channels from RGB to BGR
-    "mosaic": 0, #Combines four training images into one, simulating different scene compositions and object interactions. Highly effective for complex scene understanding.
-    "mixup": 0, #Blends two images and their labels, creating a composite image. Enhances the model's ability to generalize by introducing label noise and visual variability.
-    "cutmix": 0, #Combines portions of two images, creating a partial blend while maintaining distinct regions. Enhances model robustness by creating occlusion scenarios.
-    "erasing": 0, #Classification only. Randomly erases regions of the image during training to encourage the model to focus on less obvious features.
+# Strong Augmentation
+strong_aug = {
+    "dropout": 0.4,
+    "hsv_h": 0,
+    "hsv_s": 0,
+    "hsv_v": 0.5,
+    "degrees": 30.0,
+    "translate": 0.1,
+    "scale": 0.3,
+    "shear": 5,
+    "perspective": 0.0001,
+    "flipud": 0.5,
+    "fliplr": 0.7,
+    "bgr": 0,
+    "mosaic": 0,
+    "mixup": 0,
+    "cutmix": 0,
+    "erasing": 0,
+}
 
-
-no_aug = 
+# No Augmentation
+no_aug = {
     "dropout": 0,
     "hsv_h": 0,
     "hsv_s": 0,
@@ -89,9 +93,10 @@ no_aug =
     "mixup": 0,
     "cutmix": 0,
     "erasing": 0,
+}
 
-
-weak_aug = 
+# Weak Augmentation
+weak_aug = {
     "dropout": 0.2,
     "hsv_h": 0,
     "hsv_s": 0,
@@ -108,3 +113,4 @@ weak_aug =
     "mixup": 0,
     "cutmix": 0,
     "erasing": 0,
+}
