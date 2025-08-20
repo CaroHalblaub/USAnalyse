@@ -97,8 +97,7 @@ model.train(
     **strong_aug
     )
 
-#Compute IoU
-
+#Berechnen IoU
 import os
 import cv2
 import numpy as np
@@ -172,18 +171,18 @@ if ious:
     mean_iou = np.mean(ious)
     print(f"\n✅ Mean IoU over {len(ious)} masks: {mean_iou:.4f}")
 else:
-    print("⚠️ No IoUs could be calculated — check label/prediction format.")
-
-!cp /content/runs/segment/train5/weights/best.pt /content/drive/MyDrive/US_Projekt/pretrained_strong_aug_freeze.pt #Save Model/ Edit always the name of the model
-!cp -r /content/runs/segment/train5 /content/drive/MyDrive/US_Projekt/pretrainedv11_strong_aug
+    print("No IoUs could be calculated — check label/prediction format.")
+    
+#Berechnen der Metriken mit dem Testdatensatz
+!yolo task=segment mode=val model=/content/ runs/segment/train/weights/best.pt
+data=/content/drive/MyDrive/dataset/data_test.yaml split=test
 
 # Plotten der train/seg_loss und val/seg_loss werten
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Plot 1
 # Pfad der Datei
-path = "/content/drive/MyDrive/US_Projekt/nopretrained_strong_aug/train/results.csv"
+path = "/content/ runs/segment/train/results.csv"
 path_run = "/content/runs/segment/train/results.csv"
 df = pd.read_csv(path)
 # Definieren der x-/y-Achse
@@ -197,28 +196,10 @@ plt.title("No Pretrained Strong Augmentation")
 plt.savefig('nopretrained_strong_aug.png')
 
 
-#PLot 2
-#path = "/content/drive/MyDrive/US_Projekt/pretrainedv11_weak_aug/results.csv"
-#path_run = "/content/runs/segment/train222222222222222/results.csv"
-#df = pd.read_csv(path)
-#df = df[["train/seg_loss", "val/seg_loss"]]
-#df.plot(ylim=(0, 5))
-
-# Metriken mit dem Testdatensatz  berechnen
-!yolo task=segment mode=val model=/content/drive/MyDrive/US_Projekt/pretrained_med_weak_aug/train/weights/best.pt data=/content/drive/MyDrive/dataset/data_test.yaml split=test
-
-
-#!yolo task=segment mode=val model=/content/drive/MyDrive/US Projekt/pretrainedv11_strong_aug.pt data=/content/drive/MyDrive/dataset/data_test.yaml split=test #Metrics mit Test / Auf model path achten
-
-!cp -r /content/runs/segment/val6 /content/drive/MyDrive/US_Projekt/pretrained_strong_aug #Metriken speichern, immer auf Path achten
-
 #Model auf Bilder laufen lassen
-!yolo predict model=/content/drive/MyDrive/US_Projekt/Nopretrainedv11_no_aug/train/weights/best.pt source=/content/drive/MyDrive/US_Projekt/frames line_width=1 conf=0.1 #Path achten
-
+yolo predict model=/content/runs/segment/train/weights/best.pt
+source=/content/drive/MyDrive/US_Projekt/frames line_width=1 conf=0.1
 #Model auf video laufen lassen
-#from ultralytics import YOLO
-#!yolo predict model=/content/drive/MyDrive/US_Projekt/nopretrained_strong_aug/train/weights/best.pt source=/content/drive/MyDrive/US_Projekt/frames/Video_probe line_width=1 conf=0.1 #Path achten
-#!ffmpeg -i runs/segment/predict2/0.avi -vcodec libx264 -crf 23 -preset medium output.mp4
-!cp output.mp4 /content/drive/MyDrive/US_Projekt/nopretrained_strong_aug/predict/VideoProbe.mp4
-
-!cp -r /content/runs/segment/predict6 /content/drive/MyDrive/US_Projekt/Nopretrainedv11_no_aug/predict #Save predictions, Auf path achten
+yolo predict model=/content/runs/segment/train/weights/best.pt
+source=/content/drive/MyDrive/US_Projekt/frames/Video_probe line_width=1 conf=0.1 #Path achten
+ffmpeg -i runs/segment/predict2/0.avi -vcodec libx264 -crf 23 -preset medium output.mp4
