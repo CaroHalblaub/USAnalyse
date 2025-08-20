@@ -30,9 +30,19 @@ pip install -r requirements.txt
 
 
 ## Usage
+1. Daten vorbereiten
+   Die Rohdaten (Videos) werden im Ordner /USVideos abgelegt.
 
-> Put instructions on how to use your project code here. Best practice is to prepare a separate scripts for generating data and another script that creates plots and visualizations
+2. Frames extrahieren
+   Mit dem Skript frames.py können einzelne Frames aus Videos extrahiert und für die Annotation        genutzt werden. Speichern unter dataset/images/train, dataset/images/val und dataset/test/images.
 
+3. Bilder segmnetieren
+   Mithilfe eines geeigneten Programms (z.B. CVAT) Bilder segmentieren und in dataset/labels/train,    dataset/labels/val und dataset/test/labels speichern. 
+
+5. Training starten und Evaluation
+   Das skript us_segmentierung.py öffnen.
+   
+   
 
 ## Konfigurationsparameter
 
