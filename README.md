@@ -1,12 +1,6 @@
-# Template Folder Structure for Projects and Theses at KIS*MED
+**Ultraschall zur automatischen Erkennung submentaler Muskeln und Bestimmung der Morphologie mittels KI** wurde mit der Intention entwickelt, ein Modell zur Bildsegmentierung zu erstellen, das die relevanten Strukturen im submentalen Bereich identifizieren kann.
 
-This project structure will help you creating reproducible results in your student project / Bachelor or Master thesis. We will only accept your final submission of the project if it follows the structure outlined in this repository. The repository is created with python projects in mind. If your project uses another language or is more hardware oriented, your supervisior will guide you in making adjustments to the structure.
-
-- A handout with general informations on writing a thesis with us is provided under `docs`
-- We provide a PowerPoint template for the final presentation under `presentation`.
-- The report latex template of KISMED can be downloaded from [ShareLatex (TU Darmstadt)](https://sharelatex.tu-darmstadt.de/read/jyndmxhrgygk#430ce9). We highly recommend using ShareLatex for working on the report because it is easy to set-up.
-
-> Please give a short desription of your project here
+Im Fokus stehen insbesondere die beiden Muskeln Musculus digastricus und Musculus geniohyoideus, deren automatische Detektion und morphologische Analyse mithilfe von Künstlicher Intelligenz unterstützt werden soll. Ziel ist es, durch die Kombination von Ultraschallaufnahmen und modernen Segmentierungsverfahren eine reproduzierbare, effiziente und objektive Auswertung der Muskelstrukturen zu ermöglichen.
 
 ## The directory structure
 > This paragraph is only for clarification of the template and should be deleted in a real project
