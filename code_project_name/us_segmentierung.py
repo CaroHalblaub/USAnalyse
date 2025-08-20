@@ -82,20 +82,19 @@ weak_aug = {
     "erasing": 0,
 }
 
-# Einstellung von Trainingsparametern
+#Einstellung von Trainingsparametern und trainieren des Modells mit dem Dataset
 model.train(
-    data='/content/drive/MyDrive/dataset/data.yaml',
-    epochs=200,
-    imgsz=640,
-    #amp=False,
-    #lr0=0.0005,
-    overlap_mask=False,
-    mask_ratio=1,
-    batch=32,
-    patience=200,
-    #freeze=23,
-    **strong_aug
-    )
+data='/content/drive/MyDrive/dataset/data.yaml',
+epochs=200,
+imgsz=640,
+#amp=False,
+#lr0=0.0005,
+overlap_mask=False,
+mask_ratio=1,
+batch=32,
+patience=200,
+#freeze=23,
+**strong_aug #Gewünschte Augmentation eingeben
 
 #Berechnen IoU
 import os
