@@ -27,16 +27,7 @@ pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-Beispiel für requirements.txt
-ultralytics>=8.0.0
-opencv-python
-numpy
-tqdm
-pandas
-matplotlib
 
-Vorgefertigtes medizinisches Modell herunterladen:
-wget https://github.com/sevdaimany/YOLOv8-Medical-Imaging/raw/master/runs/segment/train/weights/best.pt -O yolov8n-medicalImaging.pt
 
 ## Usage
 
