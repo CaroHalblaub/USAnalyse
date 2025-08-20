@@ -13,10 +13,14 @@ labels
 |---val
 
 test
-|---train
-|---val
+|--images
+  |---train
+  |---val
+|--labels
+  |---train
+  |---val
 
-├--- data.yaml # YAML-Datei für Training (enthält Klassen & Pfade)
+|--- data.yaml # YAML-Datei für Training (enthält Klassen & Pfade)
 |...data_test.yaml # YAML-Datei für Test 
 
 Die Daten können hier heruntergeladen werden: https://drive.google.com/drive/folders/1pw_nrsHszTiF70gPaf-rnBl7g_RudiFZ?usp=sharing
