@@ -6,9 +6,6 @@ YOLO Medical Segmentation: Dieses Projekt nutzt YOLOv8/YOLO11 für die Segmentie
 
 
 ## Installation
-
-> Put your installation instructions here. This should include versions of all Programs and Tools used. The following example is for a python project with name `project_name`.
-
 Getestet mit Python 3.9.
 Wir empfehlen das virtuelles Environment venv.
 
