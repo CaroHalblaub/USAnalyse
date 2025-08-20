@@ -1,1 +1,2 @@
-
+In dem folgenden link sind die trainierten Modelle mit der besten Performance auf den Validierungsdaten.
+https://drive.google.com/drive/folders/1K8-0XyVcEHj3sA_yTLlkE6gniZ7vk_tc?usp=drive_link
